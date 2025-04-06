@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{media9}
+\usepackage{hyperref}
+\usepackage{color}
+
+% Title and author information
+\title{3D Model Viewer}
+\author{U3D PDF Generator}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% Replace the path below with the path to your U3D file
+% The path can be relative or absolute
+\begin{center}
+\fbox{
+    \includemedia[
+        label=model,
+        width=0.9\textwidth,
+        height=0.7\textheight,
+        activate=pageopen,
+        3Dtoolbar,
+        3Dmenu,
+        3Droo=200,         % Initial distance to model
+        3Dcoo=0 0 0,       % Target point of camera
+        3Dc2c=0 0 1,       % Camera direction
+        3Dlights=CAD,      % Lighting model
+        3Drender=Solid,    % Rendering style
+        3Dbg=1 1 1,        % Background color (white)
+    ]{\textcolor{blue}{Click to activate the 3D model}}{../obj_to_u3d/output/Skittle_3d.u3d}
+}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\textit{This interactive 3D PDF works best in Adobe Acrobat Reader.\\
+Use your mouse to rotate, scroll to zoom, and right-click for more options.}
+\end{center}
+
+% Viewing instructions
+\section*{Viewing Instructions}
+\begin{enumerate}
+    \item Open this PDF in Adobe Acrobat Reader
+    \item You may need to click "Trust this document" when prompted
+    \item Click on the box above to activate the 3D model
+    \item Use your mouse to interact with the model:
+    \begin{itemize}
+        \item Click and drag to rotate
+        \item Scroll to zoom in/out
+        \item Right-click for additional view options
+    \end{itemize}
+\end{enumerate}
+
+% Customization tips
+\section*{Customization Tips}
+To use this template with your own models:
+\begin{enumerate}
+    \item Replace the U3D file path in the \verb|\includemedia| command
+    \item Adjust viewing parameters as needed:
+    \begin{itemize}
+        \item \verb|3Droo|: Camera distance (larger values = zoom out)
+        \item \verb|3Dcoo|: Center of orbit coordinates
+        \item \verb|3Dc2c|: Camera-to-center vector (viewing direction)
+        \item \verb|3Dlights|: Lighting model (CAD, Headlamp, Hard, etc.)
+        \item \verb|3Drender|: Rendering mode (Solid, Wireframe, Points, etc.)
+    \end{itemize}
+\end{enumerate}
+
+\end{document} 
